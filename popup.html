@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Brotitude Extension</title>
+  </head>
+  <body>
+    <h1>Brotitude Extension</h1>
+    <button id="toggle-button">Enable</button>
+    <script>
+      var broButton = document.getElementById('toggle-button');
+      var enabled = false; //disabled by default
+
+      chrome.storage.local.get('enabled', data => {
+        enabled = !!data.enabled;
+        broButton.textContent = enabled ? 'Disable' : 'Enable';
+      });
+
+      broButton.onclick = () => {
+        enabled = !enabled;
+        broButton.textContent = enabled ? 'Disable' : 'Enable';
+        chrome.storage.local.set({enabled:enabled});
+      };
+
+      chrome.storage.local.get('enabled', data => {
+        if (data.enabled) {
+          chrome.management.setEnabled(id, true);
+        } else {
+          chrome.management.setEnabled(id, false);
+        }
+      });
+    </script>
+  </body>
+</html>

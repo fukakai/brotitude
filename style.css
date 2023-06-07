@@ -1,5 +1,5 @@
 body{
-  background-color: #792e1f;
+  background-color: #d5d4d4;
   text-align: center;
 }
 
@@ -9,7 +9,7 @@ body{
 
 #toggle-button{
   background-color: #151515;
-  color: #676565;
+  color: #d5d4d4;
   padding: 10px;
 }
 
@@ -20,7 +20,7 @@ body{
 }
 
 .info{
-  font-size: medium;
+  font-size: small;
 }
 
 #status-image{
